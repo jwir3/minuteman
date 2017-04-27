@@ -1,0 +1,23 @@
+{
+  "name": "minuteman",
+  "version": "1.0.0",
+  "description": "A minimal app for quickly taking meeting minutes",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": "https://github.com/jwir3/minuteman",
+  "keywords": [
+    "Electron",
+    "quick",
+    "minute",
+    "meeting",
+    "roberts",
+    "order"
+  ],
+  "author": "Scott Johnson <jaywir3@gmail.com>",
+  "license": "MPL-2.0",
+  "devDependencies": {
+    "electron": "~1.6.2"
+  }
+}
