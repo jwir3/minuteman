@@ -2,7 +2,7 @@
   "name": "minuteman",
   "version": "1.0.0",
   "description": "A minimal app for quickly taking meeting minutes",
-  "main": "main.js",
+  "main": "src/main.js",
   "scripts": {
     "start": "electron ."
   },
