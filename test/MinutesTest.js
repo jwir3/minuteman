@@ -1,9 +1,11 @@
-var should = require('chai').should();
-var Minutes = require('../src/Minutes');
+import { should } from 'chai';
+should();
 
-describe('Minutes', function() {
-  describe('Basic Construction', function() {
-    it('should construct an object of type Minutes', function() {
+import Minutes from '../src/Minutes';
+
+describe('Minutes', () => {
+  describe('Basic Construction', () => {
+    it('should construct an object of type Minutes', () => {
       var minutes = new Minutes();
       minutes.should.exist;
     });
