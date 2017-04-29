@@ -1,6 +1,7 @@
 import { should } from 'chai';
 import Minutes from '../src/Minutes';
 import moment from 'moment';
+import fixtures from './FixtureHelper';
 
 should();
 
