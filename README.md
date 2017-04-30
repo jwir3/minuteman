@@ -1,5 +1,18 @@
 # minuteman
-A minimal app for quickly taking meeting minutes
+A minimal app for quickly taking meeting minutes.
+
+## Motivation
+When participating in organizations where Robert's Rules of Order are used, it's often the case that formal meeting minutes need to be taken and disseminated to the larger group. Unfortunately, if one is stuck recording these meeting minutes (especially if a participant in the ongoing discussions and decisions), it's very likely that the meeting minutes will be mis-recorded (or not recorded in a discernible way), and thus the record is not preserved for posterity. Additionally, when taking meeting minutes by hand and then typing them into a formal document at a later date, it relies on a context (the original meeting) inaccessible to the user at the time of typing.
+
+minuteman solves this problem by creating the formal version of the meeting minutes as you are recording the "shorthand" or draft version of the minutes, likely while the meeting is ongoing. It is fast, easy to use, and offers an interface that gives the user the power to type, almost in shorthand, while recording formal, beautiful-looking documents that can then be disseminated immediately after the meeting.  
+
+## Status
+The minuteman project is currently in a **Alpha** state, meaning our initial set of functionality necessary for releasing version 1.0.0 has not yet been developed. Please see the Roadmap below, for more information.
+
+## Setup and Installation
+
+## Basic Usage
+minuteman has two modes: "planning" mode and "secretarial" mode. The "planning" mode is used for planning future meetings, preparing agendas, and setting up organizations. The "secretarial" mode is for recording meeting minutes while a meeting is ongoing (or shortly after the meeting has concluded). The real power of minuteman comes from its ability to quickly record meeting minutes, as the meeting is progressing.
 
 ## Minutes Specification
 Minutes files are in `json` file format. They have the following structure:
