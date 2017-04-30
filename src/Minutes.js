@@ -8,7 +8,23 @@ import moment from 'moment';
  */
 class Minutes {
   constructor(scheduledStartTime) {
-    this.scheduledStartTime = scheduledStartTime;
+    this.scheduledStartTime = moment(scheduledStartTime);
+  }
+
+  get calledToOrderTime() {
+    return this.calledToOrder;
+  }
+
+  set calledToOrderTime(time) {
+    this.calledToOrder = time;
+  }
+
+  get adjournedTime() {
+    return this.adjourned;
+  }
+
+  set adjournedTime(time) {
+    this.adjourned = time;
   }
 
   get scheduledStartTime() {
@@ -24,15 +40,57 @@ class Minutes {
   }
 
   get scheduledStartTimeAsString() {
-    return this.formatDateTime(this.meetingScheduledTime);
+    return Minutes.formatDateTime(this.meetingScheduledTime);
   }
 
-  formatDateTime(dateTime) {
+  static formatDateTime(dateTime) {
     if (dateTime == null) {
       throw ("Unable to format a null date/time");
     }
 
     return dateTime.format('MMMM D, YYYY hh:mma');
+  }
+
+  hasBeenCalledToOrder() {
+    return this.calledToOrder != null;
+  }
+
+  hasBeenAdjourned() {
+    return this.adjourned != null;
+  }
+
+  callToOrder() {
+    if (this.hasBeenCalledToOrder()) {
+      throw('Meeting has already been called to order');
+    }
+
+    this.calledToOrderTime = moment();
+  }
+
+  adjourn() {
+    if (!this.hasBeenCalledToOrder()) {
+      throw('Meeting has not yet been called to order');
+    }
+
+    if (this.hasBeenAdjourned()) {
+      throw('Meeting was already adjourned at ');
+    }
+
+    this.adjournedTime = moment();
+  }
+
+  static parse(minutesJson) {
+    var obj = JSON.parse(minutesJson);
+    var newObj = new Minutes(obj.scheduledStartTime);
+    if (obj.calledToOrder) {
+      newObj.calledToOrderTime = moment(obj.calledToOrder);
+    }
+
+    if (obj.adjourned) {
+      newObj.adjournedTime = moment(obj.adjourned);
+    }
+
+    return newObj;
   }
 }
 
