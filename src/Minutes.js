@@ -43,6 +43,32 @@ class Minutes {
     return Minutes.formatDateTime(this.meetingScheduledTime);
   }
 
+  wasCalledToOrderAndAdjournedOnTheSameDay() {
+    return this.calledToOrderTime.isSame(this.adjournedTime, 'day');
+  }
+
+  calledToOrderAt() {
+    if (!this.hasBeenCalledToOrder()) {
+      throw ('Meeting has not yet been called to order');
+    }
+
+    return this.calledToOrderTime.format('h:mma on MMMM DD, YYYY');
+  }
+
+  adjournedAt() {
+    if (!this.hasBeenAdjourned()) {
+      throw ('Meeting has not yet been adjourned');
+    }
+
+    // If the date of adjournment is the same as the date of the call to order,
+    // then we omit the date when reporting the adjourn time.
+    if (this.wasCalledToOrderAndAdjournedOnTheSameDay()) {
+      return this.adjournedTime.format('h:mma');
+    }
+
+    return this.adjournedTime.format('h:mma on MMMM DD, YYYY');
+  }
+
   static formatDateTime(dateTime) {
     if (dateTime == null) {
       throw ("Unable to format a null date/time");

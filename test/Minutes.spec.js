@@ -52,6 +52,8 @@ describe('Minutes', () => {
       minutes.should.exist;
 
       minutes.hasBeenCalledToOrder().should.be.false;
+      expect(() => {minutes.calledToOrderAt()}).to.throw('Meeting has not yet been called to order');
+      expect(() => {minutes.adjournedAt()}).to.throw('Meeting has not yet been adjourned');
     });
 
     it('should throw an exception if the CalledToOrderMinutes is called to order again', ()  => {
@@ -77,6 +79,36 @@ describe('Minutes', () => {
       minutes.hasBeenAdjourned().should.be.true;
       expect(minutes.adjournedTime.isSame(moment('2017-04-29T19:36'))).to.be.true;
       expect(() => { minutes.adjourn() }).to.throw('Meeting was already adjourned');
+    });
+
+    it ('should report that the AdjournedMinutes was called to order at 7:02pm', () => {
+      var adjournedMinutes = fixtures['AdjournedMinutes'];
+      adjournedMinutes.should.exist;
+
+      var minutes = Minutes.parse(adjournedMinutes.json);
+      minutes.should.exist;
+
+      minutes.calledToOrderAt().should.have.string('7:02pm on April 29, 2017');
+    });
+
+    it ('should report that the AdjournedMinutes was adjourned at 7:36pm', () => {
+      var adjournedMinutes = fixtures['AdjournedMinutes'];
+      adjournedMinutes.should.exist;
+
+      var minutes = Minutes.parse(adjournedMinutes.json);
+      minutes.should.exist;
+
+      minutes.adjournedAt().should.have.string('7:36pm');
+    });
+
+    it ('should report that the AdjournedMinutesNextDay was adjourned at 3:14am the following morning', () => {
+      var adjournedMinutesNextDay = fixtures['AdjournedMinutesNextDay'];
+      adjournedMinutesNextDay.should.exist;
+
+      var minutes = Minutes.parse(adjournedMinutesNextDay.json);
+      minutes.should.exist;
+
+      minutes.adjournedAt().should.have.string('3:14am on April 30, 2017');
     });
 
     it ('should throw an exception if the BasicMinutes object is adjourned without being called to order', () => {

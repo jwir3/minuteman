@@ -21,8 +21,8 @@ Minutes files are in `json` file format. They have the following structure:
 ### Methods
   * `callToOrder()`: Calls the meeting to order, and records the time at which the meeting was called to order in the `Minutes` as the current `Moment`.
   * `adjourn()`: Adjourns the meeting, and records the time at which the meeting was adjourned in the `Minutes` as the current `Moment`. Will throw an exception if the meeting has not yet been called to order.
-  * `calledToOrderAt()`: Returns the time, as a string, at which the meeting was called to order, in the form: "hh:mma on MMMM DD, YYYY" (e.g. "12:01pm on July 12, 1996"). This will throw an exception if the meeting has not yet been called to order.
-  * `adjournedAt()`: Returns the time, as a string, at which the meeting was adjourned, in the form: "hh:mma on MMMM DD, YYYY". If the month, day, and year of the `adjourned` parameter match that of the `calledToOrder` parameter, the date will be omitted (e.g. "12:36pm"). This will throw an exception if the meeting has not yet been adjourned.
+  * `calledToOrderAt()`: Returns the time, as a string, at which the meeting was called to order, in the form: "h:mma on MMMM DD, YYYY" (e.g. "12:01pm on July 12, 1996"). This will throw an exception if the meeting has not yet been called to order.
+  * `adjournedAt()`: Returns the time, as a string, at which the meeting was adjourned, in the form: "h:mma on MMMM DD, YYYY". If the month, day, and year of the `adjourned` parameter match that of the `calledToOrder` parameter, the date will be omitted (e.g. "12:36pm"). This will throw an exception if the meeting has not yet been adjourned.
 
 ### Notes
   1. All times are in the local time of the meeting place. As such, no timezone information is stored. We can't correctly store time zone units in the minutes data structure, which uses moment.js (without the timezone plugin), so we simply don't have this information at the current time (no pun intended). Future work can be done to either a) store all times in UTC and convert back to local time zone for display purposes, or b) use the moment-timezone plugin to appropriately store timezone information.
