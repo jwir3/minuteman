@@ -51,3 +51,17 @@ Version 1.0 really needs to have some amount of useful stuff in it. A user shoul
     - An agenda containing sections which should be discussed. Within each of these, there should be topics.
       - Each topic should have the ability to contain discussion, motions, and votes. These are obtained through the use of the UI within minuteman that has specific modes of operation. This could be called something like "holding" the meeting (as opposed to "planning" the meeting).
     - An adjournment time
+
+## API
+### Member
+#### Properties
+  * `id`: An identifier for the member. This should be unique throughout the system. Currently, member ids are unique only to an organization, so this constraint is being violated right now.
+  * `name`: A name, specified as `FirstName LastName`. Both of the names are optional, but if only one is specified, it is assumed to be a first name.
+
+#### Methods
+  * `constructor(id, name)`: Create a new `Member` object, given an id and name.
+  * `equals(aOther)`: Determine if a member object (this) is equivalent to `aOther`. If `aOther` is not a `Member`, or if `aOther`'s fields do not exactly match the fields of `this`, return `false`. Otherwise, return `true`.
+
+### Organization
+
+### Minutes
