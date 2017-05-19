@@ -44,7 +44,7 @@ Minutes files are in `json` file format. They have the following structure:
 Version 1.0 really needs to have some amount of useful stuff in it. A user should be able to do the following, at a minimum, within version 1.0:
 
   * Create a document style for outputting minutes (probably in some form of mustache template).
-  * Add an organization, with officers and members.
+  * ~~Add an organization, with officers and members.~~
   * Create a new set of minutes. Minutes should have the following:
     - A call to order time
     - A listing of members present and not present
