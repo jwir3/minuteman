@@ -2,14 +2,20 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Hello World!</title>
+    <title>Minuteman</title>
+    <link rel="stylesheet" href="../assets/css/main.css" />
   </head>
   <body>
-    <h1>Hello World!</h1>
-    <!-- All of the Node.js APIs are available in this renderer process. -->
-    We are using Node.js <script>document.write(process.versions.node)</script>,
-    Chromium <script>document.write(process.versions.chrome)</script>,
-    and Electron <script>document.write(process.versions.electron)</script>.
+    <section id="initial">
+      <img id="main-logo" src="../assets/minuteman-logo.svg" />
+      <div class="title-subtitle-combination">
+        <h1>Minuteman</h1>
+        <h3 class="subtitle">Take meeting minutes like a rebel, not like a tory.</h3>
+      </div>
+      <div class="button-panel">
+        <button id="newMeeting">Start a Meeting</button>
+      </div>
+    </section>
   </body>
 
   <script>
