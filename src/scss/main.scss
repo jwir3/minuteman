@@ -4,6 +4,7 @@
 
 body {
   background-color: $color-united-nations-blue;
+  margin: 0;
 }
 
 section#initial {
@@ -17,5 +18,52 @@ section#initial {
 
   .title-subtitle-combination {
     align-self: center;
+  }
+}
+
+.title-panel {
+  align-items: flex-start;
+  background-color: $color-blue-jeans;
+  display: flex;
+  flex-direction: column;
+  height: 4em;
+  justify-content: center;
+  margin-bottom: 1em;
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: 0;
+  padding-left: 1em;
+  width: 100%;
+}
+
+.row-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 0;
+  width: 100%;
+}
+
+.inline-titled-text {
+  align-self: flex-end;
+  color: $color-black;
+  display: flex;
+  flex-direction: row;
+  font-family: 'Love Ya Like A Sister', cursive;
+  margin-right: 2em;
+
+  h4 {
+    margin-bottom: 0;
+    margin-right: .5em;
+  }
+}
+
+.dashboard {
+  button {
+    margin-left: 1em;
+  }
+
+  h3 {
+    margin-bottom: 0;
   }
 }

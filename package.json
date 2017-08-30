@@ -23,7 +23,8 @@
   "author": "Scott Johnson <jaywir3@gmail.com>",
   "license": "MPL-2.0",
   "dependencies": {
-    "electron-prebuilt-compile": "^1.6.2",
+    "electron-prebuilt-compile": "^1.7.5",
+    "jquery": "^3.2.1",
     "minuteman-lib": "0.0.1",
     "moment": "^2.18.1"
   },
