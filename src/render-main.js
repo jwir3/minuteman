@@ -8,10 +8,17 @@ setupHandlers();
 
 let minutes = null;
 
+ipcRenderer.on('minutes-loaded', () => {
+  displayMeetingDashboard();
+});
+
 function setupHandlers() {
   $('#newMeeting').click(function() {
     ipcRenderer.send('create-new-minutes');
-    displayMeetingDashboard();
+  });
+
+  $('#openAgenda').click(function() {
+    ipcRenderer.send('open-file');
   });
 }
 

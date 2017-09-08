@@ -1,8 +1,9 @@
-const {app, BrowserWindow, ipcMain} = require('electron')
+const {app, BrowserWindow, ipcMain, dialog} = require('electron')
 const path = require('path')
 const url = require('url')
 const $ = require('jquery');
-const { Minutes } = require('minuteman-lib');
+const { Agenda, Minutes } = require('minuteman-lib');
+const fs = require('fs');
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -56,10 +57,37 @@ app.on('activate', () => {
 
 ipcMain.on('create-new-minutes', () => {
   minutes = new Minutes(new Date());
+  win.webContents.send('minutes-loaded');
 });
 
 ipcMain.on('call-to-order', () => {
   minutes.callToOrder();
+});
+
+ipcMain.on('open-file', () => {
+  dialog.showOpenDialog({
+    properties: ['openFile'],
+    filters: [
+      {
+        name: 'Minuteman JSON Files',
+        extensions: ['json', 'js']
+      }
+    ]
+  }, (filePaths) => {
+    if (!filePaths) {
+      // The user canceled the operation.
+      return;
+    }
+
+    // There should be only one file path selected.
+    if (filePaths.length > 1) {
+      throw ('Only one agenda can be selected at a time');
+    }
+
+    var fileData = fs.readFileSync(filePaths[0], 'utf-8');
+    minutes = new Minutes(new Agenda(JSON.parse(fileData)));
+    win.webContents.send('minutes-loaded');
+  });
 });
 
 ipcMain.on('load-relative-url', (event, arg) => {
@@ -68,4 +96,8 @@ ipcMain.on('load-relative-url', (event, arg) => {
     protocol: 'file:',
     slashes: true
   }))
+});
+
+ipcMain.on('poll-minutes', (event, arg) => {
+  win.webContents.send('poll-minutes-response', JSON.stringify(minutes));
 });
