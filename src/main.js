@@ -64,6 +64,10 @@ ipcMain.on('call-to-order', () => {
   minutes.callToOrder();
 });
 
+ipcMain.on('adjourn', () => {
+  minutes.adjourn();
+});
+
 ipcMain.on('open-file', () => {
   dialog.showOpenDialog({
     properties: ['openFile'],

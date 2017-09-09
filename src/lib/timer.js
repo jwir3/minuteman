@@ -15,7 +15,8 @@ Timer.prototype = {
   },
 
   stop: function() {
-
+    var self = this;
+    clearInterval(self.timerId);
   },
 
   displaySeconds: function() {
