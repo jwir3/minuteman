@@ -41,18 +41,39 @@ Minutes files are in `json` file format. They have the following structure:
   1. All times are in the local time of the meeting place. As such, no timezone information is stored. We can't correctly store time zone units in the minutes data structure, which uses moment.js (without the timezone plugin), so we simply don't have this information at the current time (no pun intended). Future work can be done to either a) store all times in UTC and convert back to local time zone for display purposes, or b) use the moment-timezone plugin to appropriately store timezone information.
 
 ## Roadmap
+### 1.0
 Version 1.0 really needs to have some amount of useful stuff in it. A user should be able to do the following, at a minimum, within version 1.0:
 
   * Create a document style for outputting minutes (probably in some form of mustache template).
   * ~~Add an organization, with officers and members.~~
   * Create a new set of minutes. Minutes should have the following:
-    - A call to order time
+    - ~~A call to order time~~
     - A listing of members present and not present
     - An agenda containing sections which should be discussed. Within each of these, there should be topics.
       - Each topic should have the ability to contain discussion, motions, and votes. These are obtained through the use of the UI within minuteman that has specific modes of operation. This could be called something like "holding" the meeting (as opposed to "planning" the meeting).
-    - An adjournment time
+    - ~~An adjournment time~~
+  * Take attendance to determine who is at the meeting.
+  * Move from one agenda topic to another, adding discussion points.
+  * Record motions, with:
+    - Whether the motion is without objection.
+    - Who moved to do what.
+    - Who seconded the motion.
+    - Any discussion point(s).
+    - A vote on the motion
+      - A vote can be:
+        - Whether there are any objections (if the motion is without objection), or
+        - an oral vote, in which case the motion carries or not, also allowing for the possibility of division,
+        - a roll-call vote, or
+        - a secret ballot vote.
+  * Attach resolutions and other documents to the meeting.
+  * Output a formatted HTML page that contains the styled version of the meeting.
 
-## API
+  Note that, in version 1.0, only the secretarial mode will be available. It is assumed that the planning mode (the creation of an Agenda in JSON) will be done by hand.
+
+### 2.0
+Version 2.0 will add bugfixes since version 1.0 was released, as well as the planning mode of operation.
+
+## API (See also http://www.github.com/jwir3/minuteman-lib)
 ### Member
 #### Properties
   * `id`: An identifier for the member. This should be unique throughout the system. Currently, member ids are unique only to an organization, so this constraint is being violated right now.
