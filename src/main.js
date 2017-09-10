@@ -4,15 +4,42 @@ const url = require('url')
 const $ = require('jquery');
 const { Agenda, Minutes } = require('minuteman-lib');
 const fs = require('fs');
+const UndoableCommand = require('./lib/undoable-command');
+const UndoManager = require('./lib/undo-manager');
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let win;
 let minutes = null;
 
+// These are the possible commands that can be executed by the application.
+var commands = [
+    new UndoableCommand('call-to-order',
+                        'undo-call-to-order',
+                        () => {
+                          minutes.callToOrder();
+                        },
+                        () => {
+                          minutes.calledToOrderTime = null;
+                        }),
+    new UndoableCommand('adjourn',
+                        'undo-adjourn',
+                        () => {
+                          minutes.adjourn();
+                        },
+                        () => {
+                          minutes.adjournedTime = null;
+                        })
+];
+
 function createWindow () {
   // Create the browser window.
-  win = new BrowserWindow({width: 800, height: 600})
+  win = new BrowserWindow(
+    {
+      width: 800,
+      height: 600,
+      title: app.getName()
+    });
 
   // and load the index.html of the app.
   win.loadURL(url.format({
@@ -30,7 +57,13 @@ function createWindow () {
     // in an array if your app supports multi windows, this is the time
     // when you should delete the corresponding element.
     win = null
-  })
+  });
+
+  require('./menu/mainmenu');
+
+  // We need to set the window in the UndoManager because it needs to
+  // communicate with the renderer process.
+  UndoManager.setWindow(win);
 }
 
 // This method will be called when Electron has finished
@@ -58,14 +91,6 @@ app.on('activate', () => {
 ipcMain.on('create-new-minutes', () => {
   minutes = new Minutes(new Date());
   win.webContents.send('minutes-loaded');
-});
-
-ipcMain.on('call-to-order', () => {
-  minutes.callToOrder();
-});
-
-ipcMain.on('adjourn', () => {
-  minutes.adjourn();
 });
 
 ipcMain.on('open-file', () => {
@@ -105,3 +130,16 @@ ipcMain.on('load-relative-url', (event, arg) => {
 ipcMain.on('poll-minutes', (event, arg) => {
   win.webContents.send('poll-minutes-response', JSON.stringify(minutes));
 });
+
+// Allow for all commands to be processed
+for (let i in commands) {
+  let nextCommand = commands[i];
+  ipcMain.on(nextCommand.getEventId(), () => {
+    UndoManager.pushCommand(nextCommand);
+    nextCommand.performAction();
+  });
+
+  ipcMain.on(nextCommand.getUndoEventId(), () => {
+    nextCommand.undo();
+  });
+}
