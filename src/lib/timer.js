@@ -23,6 +23,13 @@ Timer.prototype = {
     var minutes = Math.floor(this.secondsElapsed / 60);
     var seconds = this.secondsElapsed % 60;
     this.element.text(String(minutes).padStart(2, "0") + ":" + String(seconds).padStart(2, "0"));
+  },
+
+  reset: function() {
+    var self = this;
+    clearInterval(self.timerId);
+    self.secondsElapsed = 0;
+    self.displaySeconds();
   }
 };
 

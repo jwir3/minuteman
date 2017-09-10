@@ -8,7 +8,8 @@ const Materialize = require('materialize-css');
 var timer = new Timer($('#elapsed-time'));
 
 doInitialPoll();
-setupCallToOrderClickHandler();
+resetCallToOrderButton();
+setupUndoHandlers();
 
 function doInitialPoll() {
   ipcRenderer.send('poll-minutes');
@@ -20,7 +21,11 @@ function doInitialPoll() {
   });
 }
 
-function setupCallToOrderClickHandler() {
+function resetCallToOrderButton() {
+  $('#floatingActionButton').html('<i class="fa fa-bullhorn"></i>');
+  $('#floatingActionButton').off('click');
+  $('#floatingActionButton').show();
+
   $('#floatingActionButton').click(function() {
     ipcRenderer.send('call-to-order');
     timer.start();
@@ -28,14 +33,16 @@ function setupCallToOrderClickHandler() {
 
     // Wait for the animation to finish
     setTimeout(function() {
-      thisButton.html('<i class="fa fa-gavel"></i>');
-      thisButton.off('click');
-      setupAdjournClickHandler();
+      resetAdjournButton();
     }, 500);
   });
 }
 
-function setupAdjournClickHandler() {
+function resetAdjournButton() {
+  $('#floatingActionButton').html('<i class="fa fa-gavel"></i>');
+  $('#floatingActionButton').off('click');
+  $('#floatingActionButton').show();
+
   $('#floatingActionButton').click(function() {
     ipcRenderer.send('adjourn');
     timer.stop();
@@ -45,5 +52,19 @@ function setupAdjournClickHandler() {
     setTimeout(function() {
       thisButton.hide();
     }, 500);
+  });
+}
+
+function setupUndoHandlers() {
+  ipcRenderer.on('undo-call-to-order', () => {
+    timer.reset();
+    resetCallToOrderButton();
+    ipcRenderer.send('undo-call-to-order');
+  });
+
+  ipcRenderer.on('undo-adjourn', () => {
+    ipcRenderer.send('undo-adjourn');
+    timer.start();
+    resetAdjournButton();
   });
 }
