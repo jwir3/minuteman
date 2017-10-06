@@ -86,3 +86,4 @@ Version 2.0 will add bugfixes since version 1.0 was released, as well as the pla
 ### Organization
 
 ### Minutes
+Minutes objects represent the order of things that happened during a meeting.
