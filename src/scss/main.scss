@@ -8,12 +8,18 @@ body {
 }
 
 section#initial {
+  overflow-y: hidden;
+}
+
+#splash-content {
   display: flex;
   flex-direction: column;
   margin-top: 2em;
 
   img#main-logo {
     align-self: center;
+    height: 200px;
+    width: 200px;
   }
 
   .title-subtitle-combination {
@@ -49,7 +55,6 @@ section#initial {
   color: $color-black;
   display: flex;
   flex-direction: row;
-  font-family: 'Love Ya Like A Sister', cursive;
   margin-right: 2em;
 
   h4 {

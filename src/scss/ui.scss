@@ -2,34 +2,38 @@
 @import 'colors';
 
 button {
-  background-color: $color-caribbean-green;
+  align-self: center;
+  background-color: $color-united-nations-blue;
   border: 0;
   border-radius: 1em;
   color: $color-white;
-  font-family: 'Josefin Sans', sans-serif;
   font-size: 14pt;
   font-weight: bold;
   line-height: 3em;
+  margin: .5em 0;
   padding-left: 1em;
   padding-right: 1em;
+  width: 50%;
 
   &:focus {
     outline: 0;
   }
 
   &:hover {
-    background-color: $color-green-sheen;
+    background-color: $color-blue-jeans;
   }
 
   &:active {
-    background-color: $color-bottle-green;
+    background-color: $color-dark-slate-gray;
   }
 }
 
 .button-panel {
+  background-color: $color-white;
   display: flex;
-  flex-direction: row;
-  justify-content: space-around;
+  flex-direction: column;
+  height: 25em;
+  margin-bottom: 0;
   margin-top: 3em;
 }
 

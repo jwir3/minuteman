@@ -1,8 +1,7 @@
 @import 'colors';
-@import url('https://fonts.googleapis.com/css?family=Josefin+Sans:400,400i,700,700i|Josefin+Slab|Love+Ya+Like+A+Sister');
-
+@import url('https://fonts.googleapis.com/css?family=Slabo+27px');
 body {
-  font-family: 'Josefin Sans', sans-serif;
+  font-family: 'Slabo 27px', serif;
   font-size: 12pt;
 }
 
@@ -13,7 +12,7 @@ h4,
 h5,
 h6 {
   color: $color-white;
-  font-family: 'Love Ya Like A Sister', cursive;
+  font-family: 'Slabo 27px', serif;
   text-shadow: 0 0 4px $color-black;
   -webkit-margin-before: 0;
 }
@@ -32,10 +31,6 @@ h3 {
 
 h4 {
   font-size: 12pt;
-}
-
-.font-special {
-  font-family: 'Josefin Slab', serif;
 }
 
 .title-subtitle-combination {
