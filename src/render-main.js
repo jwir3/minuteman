@@ -4,6 +4,8 @@
 const {ipcRenderer} = require('electron');
 const $ = require('jquery');
 
+const pageName = 'index';
+
 setupHandlers();
 
 let minutes = null;
@@ -13,6 +15,11 @@ ipcRenderer.on('minutes-loaded', () => {
 });
 
 function setupHandlers() {
+  $('#openSettings').click(function() {
+    ipcRenderer.send('push-page', pageName);
+    ipcRenderer.send('load-relative-url', 'html/settings.html');
+  });
+
   $('#newMeeting').click(function() {
     ipcRenderer.send('create-new-minutes');
   });

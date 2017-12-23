@@ -11,6 +11,7 @@ const UndoManager = require('./lib/undo-manager');
 // be closed automatically when the JavaScript object is garbage collected.
 let win;
 let minutes = null;
+let pages = [];
 
 // These are the possible commands that can be executed by the application.
 var commands = [
@@ -91,6 +92,19 @@ app.on('activate', () => {
 ipcMain.on('create-new-minutes', () => {
   minutes = new Minutes(new Date());
   win.webContents.send('minutes-loaded');
+});
+
+ipcMain.on('navigate-back', () => {
+  let nextPage = pages.pop();
+  win.loadURL(url.format({
+    pathname: path.join(__dirname, 'html/' + nextPage + '.html'),
+    protocol: 'file:',
+    slashes: true
+  }))
+});
+
+ipcMain.on('push-page', (event, aPage) => {
+  pages.push(aPage);
 });
 
 ipcMain.on('open-file', () => {
