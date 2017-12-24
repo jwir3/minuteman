@@ -23,6 +23,7 @@
   "author": "Scott Johnson <jaywir3@gmail.com>",
   "license": "MPL-2.0",
   "dependencies": {
+    "css-toggle-switch": "^4.1.0",
     "electron-prebuilt-compile": "^1.8.1",
     "font-awesome": "^4.7.0",
     "hammerjs": "^2.0.8",

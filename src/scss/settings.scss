@@ -7,6 +7,7 @@ body {
 section.settings-container {
   display: flex;
   flex-direction: row;
+  justify-content: space-around;
   padding-left: 1em;
   padding-top: 60px;
 
@@ -25,5 +26,9 @@ section.settings-container {
     color: $color-raven;
     font-size: 8pt;
     margin-top: .2em;
+  }
+
+  .setting {
+    align-self: center;
   }
 }
