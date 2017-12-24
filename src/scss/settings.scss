@@ -3,3 +3,27 @@
 body {
   background-color: $color-white;
 }
+
+section.settings-container {
+  display: flex;
+  flex-direction: row;
+  padding-left: 1em;
+  padding-top: 60px;
+
+  .settings-option {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+  }
+
+  h2 {
+    font-size: 14pt;
+    margin-bottom: 0;
+  }
+
+  p {
+    color: $color-raven;
+    font-size: 8pt;
+    margin-top: .2em;
+  }
+}
