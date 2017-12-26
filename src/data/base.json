@@ -1,5 +1,9 @@
 {
   "title": "Multiple Votes",
   "onOptionTitle": "On",
-  "offOptionTitle": "Off"
+  "offOptionTitle": "Off",
+
+  "settingsPage": {
+    "pageTitle": "Settings"
+  }
 }

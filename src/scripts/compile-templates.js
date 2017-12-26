@@ -5,12 +5,16 @@ var mkdirp = require('mkdirp');
 var partials = require('partials');
 var Mustache = require('mustache');
 
+function getOutputDir() {
+  return path.join(__dirname, '..', '..', 'build');
+}
+
 function getOutputTemplateDir() {
-  return path.join('build', 'templatesPrecompiled');
+  return path.join(getOutputDir(), 'templatesPrecompiled');
 }
 
 function getOutputHtmlDir() {
-  return path.join('build', 'html');
+  return path.join(getOutputDir(), 'html');
 }
 
 /**
@@ -52,7 +56,9 @@ function loadPartials() {
 
 function writeDataToHtmlFile(data, directory, filename) {
   mkdirp(directory);
-  fs.writeFileSync(path.join(directory, filename), data);
+  let finalHtmlFile = path.join(directory, filename);
+  console.log(`Writing data: ${data} to ${finalHtmlFile}`);
+  fs.writeFileSync(finalHtmlFile, data);
 }
 
 function convertOrganismsToHtml(data) {
@@ -66,7 +72,9 @@ function convertOrganismsToHtml(data) {
       let htmlFileName = nextFile.replace(organismRegex, '$1.html');
       let templateData = fs.readFileSync(path.join(outputTemplateDir, nextFile),
                                          'utf-8');
-      let rendered = Mustache.render(templateData, data, loadPartials());
+      let dataFile = path.join(__dirname, '..', data);
+      let jsonData = JSON.parse(fs.readFileSync(dataFile, 'utf-8'));
+      let rendered = Mustache.render(templateData, jsonData, loadPartials());
       writeDataToHtmlFile(rendered, outputHtmlDirectory, htmlFileName);
     }
   }
