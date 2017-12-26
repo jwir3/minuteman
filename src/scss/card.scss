@@ -1,0 +1,28 @@
+@import 'colors';
+
+.fullscreen-message {
+  align-items: space-around;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Slabo 27px', serif;
+  padding-top: 56px;
+
+  i {
+    color: $color-black-thirty-six-percent;
+    font-size: 15em;
+    padding-top: .5em;
+    text-align: center;
+    vertical-align: middle;
+  }
+
+  h2 {
+    color: $color-black-thirty-six-percent;
+    font-size: 24pt;
+    padding-top: .5em;
+  }
+
+  p {
+    color: $color-black-thirty-six-percent;
+    font-size: 12pt;
+  }
+}

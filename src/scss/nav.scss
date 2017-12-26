@@ -26,9 +26,11 @@ nav {
     }
   }
 
-  h3 {
+  h3.navTitle {
     align-self: center;
+    font-family: 'Roboto', sans-serif;
     font-size: 18pt;
-    text-shadow: 0 0 4px $color-black-fifty-percent;
+    line-height: 1.5;
+    text-shadow: none;
   }
 }

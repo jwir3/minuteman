@@ -57,7 +57,6 @@ function loadPartials() {
 function writeDataToHtmlFile(data, directory, filename) {
   mkdirp(directory);
   let finalHtmlFile = path.join(directory, filename);
-  console.log(`Writing data: ${data} to ${finalHtmlFile}`);
   fs.writeFileSync(finalHtmlFile, data);
 }
 

@@ -6,23 +6,24 @@
     <link rel="stylesheet" href="../../node_modules/font-awesome/css/font-awesome.min.css">
     <link type="text/css" rel="stylesheet" href="../../node_modules/materialize-css/dist/css/materialize.min.css"  media="screen,projection"/>
     <link rel="stylesheet" href="../../build/css/settings.css" />
+    <link rel="stylesheet" href="../../build/css/card.css" />
     <link rel="stylesheet" href="../../build/css/nav.css" />
     <link rel="stylesheet" href="../../node_modules/css-toggle-switch/dist/toggle-switch.css" />
   </head>
-  {{# settingsPage }}
-    <body>
+  <body>
+    {{# settingsPage }}
       {{> organs-nav-bar }}
-      <section class="settings-container">
-        <div class="settings-option">
-          <h2>Allow Multiple Votes</h2>
-          <p>Some organizations allow individuals to have differing numbers of votes. This enables this feature, but forces all individuals in an organization to specify how many votes they are allowed to cast.</p>
-        </div>
-        <div class="setting">
-          {{> atoms-toggle-switch }}
-        </div>
-      </section>
-    </body>
-  {{/ settingsPage }}
+    {{/ settingsPage }}
+
+    {{# settings }}
+      {{> organs-setting }}
+    {{/ settings }}
+    {{^ settings }}
+      {{# noSettingsPlaceholder }}
+        {{> organs-fullscreen-placeholder }}
+      {{/ noSettingsPlaceholder }}
+    {{/ settings }}
+  </body>
 
   <script>
     // You can also require other files to run in this process

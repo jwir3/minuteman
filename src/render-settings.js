@@ -7,13 +7,8 @@ const $ = require('jquery');
 const pageName = 'Settings';
 
 $(document).ready(function() {
-  loadPageName();
   setupHandlers();
 });
-
-function loadPageName() {
-  $('#navTitle').text(pageName);
-}
 
 function setupHandlers() {
   $('#navigateBack').click(() => {
