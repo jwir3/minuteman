@@ -1,0 +1,36 @@
+@import 'colors';
+
+nav {
+  background-color: $color-united-nations-blue;
+  box-shadow: 0 0 4px $color-black-fourteen-percent, 0 4px 8px $color-black-twenty-eight-percent;
+  display: flex;
+  flex-direction: row;
+  height: 56px;
+  position: fixed;
+
+  .back-button {
+    align-self: center;
+    font-size: 18pt;
+    margin: auto .5em;
+
+    &:hover {
+      color: $color-blue-jeans;
+    }
+
+    &:active {
+      color: $color-dark-slate-gray;
+    }
+
+    i {
+      vertical-align: text-top;
+    }
+  }
+
+  h3.navTitle {
+    align-self: center;
+    font-family: 'Roboto', sans-serif;
+    font-size: 18pt;
+    line-height: 1.5;
+    text-shadow: none;
+  }
+}

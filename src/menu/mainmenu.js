@@ -42,7 +42,6 @@ const template = [
 ]
 
 if (process.platform === 'darwin') {
-  console.log("APP NAME: " + app.getName());
   const name = app.getName()
   template.unshift({
     label: name,

@@ -1,0 +1,11 @@
+<section class="settings-container">
+  <div class="settings-option">
+    <h2>{{ title }}</h2>
+    <p>{{ description }}</p>
+  </div>
+  <div class="setting">
+    {{# isOnOffSetting }}
+      {{> atoms-toggle-switch }}
+    {{/ isOnOffSetting }}
+  </div>
+</section>

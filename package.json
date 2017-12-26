@@ -2,14 +2,18 @@
   "name": "minuteman",
   "version": "1.0.0",
   "description": "A minimal app for quickly taking meeting minutes",
-  "main": "src/main.js",
+  "main": "build/src/main.js",
   "watches": {
     "sass": "src/scss/**"
   },
   "scripts": {
-    "start": "npm run sass && electron .",
-    "sass": "node-sass src/scss/ -o assets/css/",
-    "dev": "rerun-script"
+    "start": "npm run build && electron .",
+    "build": "npm run sass && npm run compileTemplates && npm run copyFiles",
+    "compileTemplates": "node src/scripts/compile-templates data/base.json",
+    "copyFiles": "node src/scripts/copy-files",
+    "sass": "node-sass src/scss/ -o build/css/",
+    "dev": "rerun-script",
+    "clean": "rimraf build"
   },
   "repository": "https://github.com/jwir3/minuteman",
   "keywords": [
@@ -23,15 +27,22 @@
   "author": "Scott Johnson <jaywir3@gmail.com>",
   "license": "MPL-2.0",
   "dependencies": {
-    "electron-prebuilt-compile": "^1.7.5",
+    "css-toggle-switch": "^4.1.0",
+    "electron-prebuilt-compile": "^1.8.1",
+    "font-awesome": "^4.7.0",
     "hammerjs": "^2.0.8",
     "jquery": "^3.2.1",
     "materialize-css": "^0.100.2",
     "minuteman-lib": "0.0.7",
-    "moment": "^2.18.1"
+    "moment": "^2.18.1",
+    "mustache": "^2.3.0"
   },
   "devDependencies": {
+    "mkdirp": "^0.5.1",
     "node-sass": "^4.5.3",
-    "rerun-script": "^0.6.0"
-  }
+    "partials": "^0.1.0",
+    "rerun-script": "^0.6.0",
+    "rimraf": "^2.6.2"
+  },
+  "templatesDirectory": "src/templates"
 }

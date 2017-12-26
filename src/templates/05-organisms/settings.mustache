@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Minuteman</title>
+    <link rel="stylesheet" href="../../node_modules/font-awesome/css/font-awesome.min.css">
+    <link type="text/css" rel="stylesheet" href="../../node_modules/materialize-css/dist/css/materialize.min.css"  media="screen,projection"/>
+    <link rel="stylesheet" href="../../build/css/settings.css" />
+    <link rel="stylesheet" href="../../build/css/card.css" />
+    <link rel="stylesheet" href="../../build/css/nav.css" />
+    <link rel="stylesheet" href="../../node_modules/css-toggle-switch/dist/toggle-switch.css" />
+  </head>
+  <body>
+    {{# settingsPage }}
+      {{> organs-nav-bar }}
+    {{/ settingsPage }}
+
+    {{# settings }}
+      {{> organs-setting }}
+    {{/ settings }}
+    {{^ settings }}
+      {{# noSettingsPlaceholder }}
+        {{> organs-fullscreen-placeholder }}
+      {{/ noSettingsPlaceholder }}
+    {{/ settings }}
+  </body>
+
+  <script>
+    // You can also require other files to run in this process
+    require('../src/render-settings.js')
+  </script>
+</html>

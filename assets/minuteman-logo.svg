@@ -1,24 +1,21 @@
-<svg width="262px" height="262px" viewBox="0 0 262 262" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg width="581px" height="581px" viewBox="0 0 581 581" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <defs>
-        <path d="M31.87,0.35 L130.8,0.35 C158.8,0.35 175.28,31.82 159.32,54.84 L101.32,138.46 C97.4753119,144.007655 91.1546742,147.317407 84.405,147.317407 C77.6553258,147.317407 71.3346881,144.007655 67.49,138.46 L6,49.79 C-8.49,28.91 6.45,0.35 31.87,0.35 Z" id="path-1"></path>
+        <filter x="-16.2%" y="-18.8%" width="132.6%" height="137.8%" filterUnits="objectBoundingBox" id="filter-1">
+            <feOffset dx="0" dy="0" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="22.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.7 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
     </defs>
     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="MInuteman-Logo" transform="translate(-46.000000, 2.000000)">
-            <circle id="Oval-2" stroke="#FFFFFF" stroke-width="4" fill="#A4ACF0" cx="177" cy="129" r="129"></circle>
-            <g id="Minuteman-Hat" transform="translate(0.000000, 35.000000)">
-                <path d="M125.87,20.35 L224.8,20.35 C252.8,20.35 269.28,51.82 253.32,74.84 L195.32,158.46 C191.475312,164.007655 185.154674,167.317407 178.405,167.317407 C171.655326,167.317407 165.334688,164.007655 161.49,158.46 L100,69.79 C85.51,48.91 100.45,20.35 125.87,20.35 Z" id="Shape" fill="#000000" fill-rule="nonzero"></path>
-                <g id="Masked-Trim" transform="translate(94.000000, 20.000000)">
-                    <mask id="mask-2" fill="white">
-                        <use xlink:href="#path-1"></use>
-                    </mask>
-                    <use id="Mask" fill="#000000" fill-rule="nonzero" xlink:href="#path-1"></use>
-                    <path d="M191.22,34.86 C191.22,34.86 82.62,42.16 82.62,186.75" id="Shape" stroke="#FFFFFF" mask="url(#mask-2)"></path>
-                    <path d="M82.61,181.75 C82.61,37.17 -26,34.86 -26,34.86" id="Shape" stroke="#FFFFFF" mask="url(#mask-2)"></path>
-                    <path d="M-25.3,-4.08 C-25.3,-4.08 82.62,34.67 191.37,-4.08" id="Shape" stroke="#FFFFFF" mask="url(#mask-2)"></path>
-                </g>
-                <path d="M222.89,47.14 C222.89,72.6997382 202.169738,93.42 176.61,93.42 C151.050262,93.42 130.33,72.6997382 130.33,47.14 C130.33,21.5802618 151.050262,0.86 176.61,0.86 C202.169738,0.86 222.89,21.5802618 222.89,47.14 Z" id="Shape" fill="#000000" fill-rule="nonzero"></path>
-                <path d="M130,47.1795669 C130.229631,24.4132719 146.053365,1 175.294371,1 C204.535377,1 222.339515,21.2124786 221.716231,47.1795669" id="Path-3" stroke="#FFFFFF"></path>
-            </g>
+        <circle id="Icon-Boundary" stroke="#000000" stroke-width="4" fill="#54C6EB" cx="290.5" cy="290.5" r="288.5"></circle>
+        <g id="Tricorne-Hat" filter="url(#filter-1)" transform="translate(73.000000, 133.000000)" fill="#FFFFFF" stroke="#000000" stroke-width="4">
+            <polygon id="Hat-Frame" points="1 80.4556663 211.254171 369 434.527344 80"></polygon>
+            <path d="M0.672176906,78.796875 C0.672176906,97.5507812 107.707451,118.683594 149.316406,178 C190.925361,237.316406 188.236328,339.640625 211.753906,339.640625 C235.271484,339.640625 239.914062,235.710937 286.125,178 C332.335938,120.289063 434.848326,94.4492188 434.848326,78.796875 C434.848326,71.0594502 401,78 356,60 C311,42 247.909962,0.0827524937 211.753906,0.0827524937 C172.920522,0.0827524937 111,44 66,61 C21,78 0.672176906,70.2284846 0.672176906,78.796875 Z" id="Hat-Flaps"></path>
+            <path d="M125.671875,151.210937 C117.739583,76.2005208 149.054687,38.6953125 219.617187,38.6953125 C290.179687,38.6953125 321.494792,76.2005208 313.5625,151.210937" id="Hat-Crown"></path>
         </g>
     </g>
 </svg>

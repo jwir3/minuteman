@@ -7,10 +7,13 @@ const fs = require('fs');
 const UndoableCommand = require('./lib/undoable-command');
 const UndoManager = require('./lib/undo-manager');
 
+const HtmlDir = path.join(__dirname, '..', 'html');
+
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let win;
 let minutes = null;
+let pages = [];
 
 // These are the possible commands that can be executed by the application.
 var commands = [
@@ -43,7 +46,7 @@ function createWindow () {
 
   // and load the index.html of the app.
   win.loadURL(url.format({
-    pathname: path.join(__dirname, 'html/index.html'),
+    pathname: path.join(HtmlDir, 'index.html'),
     protocol: 'file:',
     slashes: true
   }))
@@ -93,6 +96,19 @@ ipcMain.on('create-new-minutes', () => {
   win.webContents.send('minutes-loaded');
 });
 
+ipcMain.on('navigate-back', () => {
+  let nextPage = pages.pop();
+  win.loadURL(url.format({
+    pathname: path.join(HtmlDir, nextPage + '.html'),
+    protocol: 'file:',
+    slashes: true
+  }))
+});
+
+ipcMain.on('push-page', (event, aPage) => {
+  pages.push(aPage);
+});
+
 ipcMain.on('open-file', () => {
   dialog.showOpenDialog({
     properties: ['openFile'],
@@ -119,9 +135,9 @@ ipcMain.on('open-file', () => {
   });
 });
 
-ipcMain.on('load-relative-url', (event, arg) => {
+ipcMain.on('load-local-html', (event, arg) => {
   win.loadURL(url.format({
-    pathname: path.join(__dirname, arg),
+    pathname: path.join(HtmlDir, arg),
     protocol: 'file:',
     slashes: true
   }))

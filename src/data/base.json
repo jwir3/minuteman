@@ -1,0 +1,14 @@
+{
+  "title": "Multiple Votes",
+  "onOptionTitle": "On",
+  "offOptionTitle": "Off",
+
+  "settingsPage": {
+    "pageTitle": "Settings"
+  },
+  "noSettingsPlaceholder": {
+    "icon": "warning",
+    "shortMessage": "No Settings",
+    "detailedMessage": "No settings are available right now. Settings will become available as Minuteman develops."
+  }
+}
