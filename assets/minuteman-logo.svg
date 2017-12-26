@@ -1,7 +1,6 @@
-
 <svg width="581px" height="581px" viewBox="0 0 581 581" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <defs>
-        <filter x="-16.2%" y="-19.6%" width="132.6%" height="139.8%" filterUnits="objectBoundingBox" id="filter-1">
+        <filter x="-16.2%" y="-18.8%" width="132.6%" height="137.8%" filterUnits="objectBoundingBox" id="filter-1">
             <feOffset dx="0" dy="0" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
             <feGaussianBlur stdDeviation="22.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
             <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.7 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
@@ -13,10 +12,10 @@
     </defs>
     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <circle id="Icon-Boundary" stroke="#000000" stroke-width="4" fill="#54C6EB" cx="290.5" cy="290.5" r="288.5"></circle>
-        <g id="Tricorne-Hat" filter="url(#filter-1)" transform="translate(73.000000, 148.000000)" fill="#FFFFFF" stroke="#000000" stroke-width="4">
-            <polygon id="Hat-Frame" points="1 65.4556663 211.254171 354 434.527344 65"></polygon>
-            <path d="M0.672176906,63.796875 C0.672176906,82.5507813 107.707451,103.683594 149.316406,163 C190.925361,222.316406 188.236328,324.640625 211.753906,324.640625 C235.271484,324.640625 239.914062,220.710937 286.125,163 C332.335938,105.289063 434.848326,79.4492187 434.848326,63.796875 C434.848326,48.1445313 283.255208,0.9921875 211.753906,0.9921875 C140.252604,0.9921875 0.672176906,45.0429688 0.672176906,63.796875 Z" id="Hat-Flaps"></path>
-            <path d="M125.671875,136.210937 C117.739583,61.2005208 149.054687,23.6953125 219.617187,23.6953125 C290.179687,23.6953125 321.494792,61.2005208 313.5625,136.210937" id="Hat-Crown"></path>
+        <g id="Tricorne-Hat" filter="url(#filter-1)" transform="translate(73.000000, 133.000000)" fill="#FFFFFF" stroke="#000000" stroke-width="4">
+            <polygon id="Hat-Frame" points="1 80.4556663 211.254171 369 434.527344 80"></polygon>
+            <path d="M0.672176906,78.796875 C0.672176906,97.5507812 107.707451,118.683594 149.316406,178 C190.925361,237.316406 188.236328,339.640625 211.753906,339.640625 C235.271484,339.640625 239.914062,235.710937 286.125,178 C332.335938,120.289063 434.848326,94.4492188 434.848326,78.796875 C434.848326,71.0594502 401,78 356,60 C311,42 247.909962,0.0827524937 211.753906,0.0827524937 C172.920522,0.0827524937 111,44 66,61 C21,78 0.672176906,70.2284846 0.672176906,78.796875 Z" id="Hat-Flaps"></path>
+            <path d="M125.671875,151.210937 C117.739583,76.2005208 149.054687,38.6953125 219.617187,38.6953125 C290.179687,38.6953125 321.494792,76.2005208 313.5625,151.210937" id="Hat-Crown"></path>
         </g>
     </g>
 </svg>
