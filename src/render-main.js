@@ -3,8 +3,11 @@
 // All of the Node.js APIs are available in this process.
 const {ipcRenderer} = require('electron');
 const $ = require('jquery');
+const path = require('path');
 
 const pageName = 'index';
+
+const HtmlDir = path.join(__dirname, '..', 'html');
 
 setupHandlers();
 
@@ -17,7 +20,10 @@ ipcRenderer.on('minutes-loaded', () => {
 function setupHandlers() {
   $('#openSettings').click(function() {
     ipcRenderer.send('push-page', pageName);
-    ipcRenderer.send('load-relative-url', 'html/settings.html');
+    // let settingsHtmlPath = path.join(HtmlDir, 'settings.html');
+    // console.log(`About to load ${settingsHtmlPath}`)
+    // ipcRenderer.send('load-relative-url', settingsHtmlPath);
+    ipcRenderer.send('load-local-html', 'settings.html');
   });
 
   $('#newMeeting').click(function() {
