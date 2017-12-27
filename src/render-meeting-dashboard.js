@@ -1,5 +1,5 @@
 const {ipcRenderer} = require('electron');
-const { Minutes } = require('minuteman-lib');
+const { Minutes } = require('tricorne');
 const $ = require('jquery');
 const Timer = require('./lib/timer');
 const Hammer = require('hammerjs');
