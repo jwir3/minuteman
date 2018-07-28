@@ -27,19 +27,20 @@
   "author": "Scott Johnson <jaywir3@gmail.com>",
   "license": "MPL-2.0",
   "dependencies": {
-    "css-toggle-switch": "^4.1.0",
-    "electron-prebuilt-compile": "^1.8.1",
+    "css-toggle-switch": "*",
+    "electron-prebuilt-compile": "^2.0.4",
     "font-awesome": "^4.7.0",
-    "hammerjs": "^2.0.8",
-    "jquery": "^3.2.1",
+    "hammerjs": "*",
+    "jquery": "*",
     "materialize-css": "^0.100.2",
-    "tricorne": "0.0.12",
-    "moment": "^2.18.1",
-    "mustache": "^2.3.0"
+    "moment": "*",
+    "mustache": "*",
+    "lowdash": "*",
+    "tricorne": "0.0.12"
   },
   "devDependencies": {
     "mkdirp": "^0.5.1",
-    "node-sass": "^4.5.3",
+    "node-sass": "^4.9.2",
     "partials": "^0.1.0",
     "rerun-script": "^0.6.0",
     "rimraf": "^2.6.2"
